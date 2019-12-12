@@ -1,0 +1,19 @@
+<div id="app" *ngIf="camara">
+    <div><video #video id="video" width="640" height="480" autoplay></video></div>
+    <button id="startbutton" (click)="capture()" type="button" style="width:100%;margin-top: -5px;border-radius: 0px;" class="btn btn-info btn-sm">
+            <span class="glyphicon glyphicon-camera"></span> <b>Tomar Foto</b>
+          </button>
+    <canvas #canvas id="canvas" width="640" height="480"></canvas>
+</div>
+
+<div id="app" *ngIf="!camara">
+    <div><img src="{{ foto }}" class="img-thumbnail" /></div>
+    <div class="row">
+        <button id="startbutton" [mat-dialog-close]="this.foto" type="button" style="width:50%;margin-top: -5px;border-radius: 0px;" class="btn btn-success btn-sm">
+            <span class="glyphicon glyphicon-camera"></span> <b>Guardar</b>
+          </button>
+        <button id="startbutton" (click)="retomar()" type="button" style="width:50%;margin-top: -5px;border-radius: 0px;" class="btn btn-danger btn-sm">
+            <span class="glyphicon glyphicon-camera"></span> <b>Retomar</b>
+              </button>
+    </div>
+</div>
